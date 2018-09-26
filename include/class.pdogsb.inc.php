@@ -270,6 +270,18 @@ class PdoGsb{
 		return $lesMois;
 	}
 /**
+ * Retourne tout les visiteurs
+ 
+ * @return un tableau associatif de clé un log
+*/
+	public function getVisiteur(){
+		$req = "SELECT login as log FROM visiteur";
+		$res = PdoGsb::$monPdo->query($req);
+		//$leTab = array();
+		$leTab= $res->fetchAll();
+		return $leTab;
+	}
+/**
  * Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné
  
  * @param $idVisiteur 

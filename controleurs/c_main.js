@@ -7,5 +7,9 @@ function get_color(role){
 		document.body.style.backgroundColor = "#FF8000"; // on change la couleur du background
 		var elem = document.getElementById('entete'); // on recupere l'element entete
 		elem.style.backgroundColor = "#FE9A2E"; // on surcharge le css avec une modification du background color avec une nouvelle couleur
+	}else{
+		document.body.style.backgroundColor = "#77AADD"";
+		var elem = document.getElementById('entete'); // on recupere l'element entete
+		elem.style.backgroundColor = "Aqua"; // on surcharge le css avec une modification du background color avec une nouvelle couleur
 	}
 }
