@@ -277,12 +277,17 @@ class PdoGsb{
  * @return un tableau associatif de clé un log
 */
 	public function getVisiteur(){
+<<<<<<< HEAD
 		$req = "SELECT login,id FROM visiteur WHERE role=0";
+=======
+		$req = "SELECT login as log FROM visiteur";
+>>>>>>> 993a171e33bb9e7127610d83bc2b711ba0abf126
 		$res = PdoGsb::$monPdo->query($req);
 		//$leTab = array();
 		$leTab= $res->fetchAll();
 		return $leTab;
 	}
+<<<<<<< HEAD
 	/**
 	* Met l'etat valider dans la BDD pour la fiche de frais de $idVisiteur
 	*/
@@ -295,6 +300,8 @@ class PdoGsb{
 		$date = date("n-Y");
 		return($date);
 	}
+=======
+>>>>>>> 993a171e33bb9e7127610d83bc2b711ba0abf126
 /**
  * Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné
  

@@ -37,6 +37,7 @@ else{
 	include("vues/v_sommaireC.php");
 	$action = $_REQUEST['action'];
 	$idVisiteur = $_SESSION['idVisiteur'];
+<<<<<<< HEAD
 	//Script de gestion des cloture de fiche de frais du mois precedent
 	$liste = $pdo->getVisiteur();
 	$lstCL = array();
@@ -85,6 +86,40 @@ else{
 			$pdo->validerFrais($_SESSION['lutil']);
 			include("vues/v_liste_fraisC.php");
 			break;
+=======
+	$liste = $pdo->getVisiteur();
+	switch($action){
+		case 'selectionnerMois':{
+			$lesMois=$pdo->getLesMoisDisponibles($idVisiteur);
+			// Afin de sélectionner par défaut le dernier mois dans la zone de liste
+			// on demande toutes les clés, et on prend la première,
+			// les mois étant triés décroissants
+			$lesCles = array_keys( $lesMois );
+			$moisASelectionner = $lesCles[0];
+			include("vues/v_listeMois.php");
+			echo count($liste);
+			echo "<script>get_color(".$_SESSION['role'].");</script>";
+			break;
+		}
+		case 'etatFrais':{
+			$leMois = $_REQUEST['lstMois']; 
+			$lesMois=$pdo->getLesMoisDisponibles($idVisiteur);
+			$moisASelectionner = $leMois;
+			include("vues/v_listeMois.php");
+			echo "<script>get_color(".$_SESSION['role'].");</script>";
+			$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur,$leMois);
+			$lesFraisForfait= $pdo->getLesFraisForfait($idVisiteur,$leMois);
+			$lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur,$leMois);
+			$numAnnee =substr( $leMois,0,4);
+			$numMois =substr( $leMois,4,2);
+			$libEtat = $lesInfosFicheFrais['libEtat'];
+			$montantValide = $lesInfosFicheFrais['montantValide'];
+			$nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
+			$dateModif =  $lesInfosFicheFrais['dateModif'];
+			$dateModif =  dateAnglaisVersFrancais($dateModif);
+			include("vues/v_etatFrais.php");
+			
+>>>>>>> 993a171e33bb9e7127610d83bc2b711ba0abf126
 		}
 	}
 }
