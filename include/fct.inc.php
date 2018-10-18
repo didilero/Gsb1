@@ -200,4 +200,16 @@ function nbErreurs(){
 	   return count($_REQUEST['erreurs']);
 	}
 }
+
+function rechercheUtilLeMois($idVisiteur,$liste){
+	$i =0;
+	while($i<sizeof($liste) && !$liste[$i][0] == $idVisiteur){
+		$i = $i+1;
+	}
+	if($i<sizeof($liste)){
+		return $liste[$i][2];
+	}else{
+		return null;
+	}
+}
 ?>

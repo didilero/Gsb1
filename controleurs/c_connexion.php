@@ -35,7 +35,6 @@ switch($action){
 				include("vues/v_sommaireC.php");
 				echo "<script>get_color(".$_SESSION['role'].");</script>";
 			}
-			
 		}
 		break;
 	}

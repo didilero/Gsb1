@@ -6,7 +6,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href="./styles/styles.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
-	<script type="text/javascript" src="./controleurs/c_main.js"></script>  <!-- Ajout de la fonction pour changer le fond-->
+	<script type="text/javascript" src="../controleurs/c_main.js"></script>  <!-- Ajout de la fonction pour changer le fond-->
   </head>
   <body>
     <div id="page">

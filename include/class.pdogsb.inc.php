@@ -115,6 +115,8 @@ class PdoGsb{
 		$lesLignes = $res->fetchAll();
 		return $lesLignes; 
 	}
+	
+
 /**
  * Retourne tous les id de la table FraisForfait
  
@@ -268,6 +270,30 @@ class PdoGsb{
 			$laLigne = $res->fetch(); 		
 		}
 		return $lesMois;
+	}
+/**
+ * Retourne tout les visiteurs
+ 
+ * @return un tableau associatif de clé un log
+*/
+	public function getVisiteur(){
+		$req = "SELECT login,id FROM visiteur WHERE role=0";
+		$res = PdoGsb::$monPdo->query($req);
+		//$leTab = array();
+		$leTab= $res->fetchAll();
+		return $leTab;
+	}
+	/**
+	* Met l'etat valider dans la BDD pour la fiche de frais de $idVisiteur
+	*/
+	public function validerFrais($idVisiteur){
+		$req = "UPDATE `fichefrais` SET`idEtat`='VA' WHERE idVisiteur='".$idVisiteur."'";
+		PdoGsb::$monPdo->exec($req);
+	}
+	
+	public function getMois(){
+		$date = date("n-Y");
+		return($date);
 	}
 /**
  * Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné
